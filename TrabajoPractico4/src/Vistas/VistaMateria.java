@@ -39,7 +39,8 @@ public class VistaMateria extends javax.swing.JInternalFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
 
-        lblTituloMaterias.setText("jLabel1");
+        lblTituloMaterias.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblTituloMaterias.setText("Formulario de materias");
 
         lblCodigoMaterias.setText("CODIGO DE LA MATERIA:");
 
@@ -80,14 +81,14 @@ public class VistaMateria extends javax.swing.JInternalFrame {
                             .addComponent(txtNombreMateria)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(151, 151, 151)
-                        .addComponent(lblTituloMaterias)))
+                        .addComponent(lblTituloMaterias, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(12, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(lblTituloMaterias)
+                .addContainerGap()
+                .addComponent(lblTituloMaterias, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCodigoMaterias)
