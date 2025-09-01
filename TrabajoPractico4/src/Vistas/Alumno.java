@@ -5,15 +5,18 @@
  */
 package Vistas;
 
+import java.util.HashSet;
+
 /**
  *
  * @author Naiara
  */
 public class Alumno {
-    
+
     private int legajo;
     private String apellido;
     private String nombre;
+    private HashSet<Materias> materiasInscripto = new HashSet<>();
 
     public Alumno(int legajo, String apellido, String nombre) {
         this.legajo = legajo;
@@ -44,13 +47,26 @@ public class Alumno {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    
-    public void agregarMateria(Materias m){
-        
+
+    public HashSet<Materias> getMateriasInscripto() {
+        return materiasInscripto;
     }
-    
-    public int cantidadMaterias(){        
-        return 0;
+
+    public void setMateriasInscripto(HashSet<Materias> materiasInscripto) {
+        this.materiasInscripto = materiasInscripto;
+    }
+
+    public void agregarMateria(Materias m) {
+        if (materiasInscripto.contains(m)) {
+            materiasInscripto.add(m);
+            System.out.println("El Alumno " + apellido + nombre + " inscripto en " + m + " con éxito");
+        }else{
+            System.out.println("El Alumno " + apellido + nombre + " ya está inscripto a esta materia.");
+        }
+    }
+
+    public int cantidadMaterias() {
+        return materiasInscripto.size();
     }
 
     @Override
@@ -58,9 +74,5 @@ public class Alumno {
         return "Alumno " + apellido + nombre + ""
                 + "\n\tNúmero de legajo " + legajo;
     }
-    
-    
-    
-    
-    
+
 }
