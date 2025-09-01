@@ -9,12 +9,12 @@ package Vistas;
  *
  * @author Enzo_2
  */
-public class VentanaPrincipal extends javax.swing.JFrame {
+public class Colegio extends javax.swing.JFrame {
 
     /**
      * Creates new form VentanaPrincipal
      */
-    public VentanaPrincipal() {
+    public Colegio() {
         initComponents();
     }
 
@@ -121,12 +121,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-           escritorio.removeAll();
-           escritorio.repaint();
-           VistaAlumnos alumnos = new VistaAlumnos();
-           alumnos.setVisible(true);
-           escritorio.add(alumnos);
-           escritorio.moveToFront(alumnos);
+        escritorio.removeAll();
+        escritorio.repaint();
+        VistaAlumnos alumnos = new VistaAlumnos();
+        alumnos.setVisible(true);
+        escritorio.add(alumnos);
+        escritorio.moveToFront(alumnos);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void menuAlumno1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAlumno1ActionPerformed
@@ -134,20 +134,20 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_menuAlumno1ActionPerformed
 
     private void jMenuItemAgregarMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAgregarMateriaActionPerformed
-            escritorio.removeAll();
-           escritorio.repaint();
-           VistaMateria materia = new VistaMateria();
-           materia.setVisible(true);
-           escritorio.add(materia);
-           escritorio.moveToFront(materia);
+        escritorio.removeAll();
+        escritorio.repaint();
+        VistaMateria materia = new VistaMateria();
+        materia.setVisible(true);
+        escritorio.add(materia);
+        escritorio.moveToFront(materia);
     }//GEN-LAST:event_jMenuItemAgregarMateriaActionPerformed
 
     private void jMenuItemSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSalirActionPerformed
-        System.exit(0);        
+        System.exit(0);
     }//GEN-LAST:event_jMenuItemSalirActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-escritorio.removeAll();
+        escritorio.removeAll();
         escritorio.repaint();
         Formulario_Inscripcion formu = new Formulario_Inscripcion();
         formu.setVisible(true);
@@ -172,20 +172,21 @@ escritorio.removeAll();
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VentanaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Colegio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VentanaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Colegio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VentanaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Colegio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VentanaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Colegio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentanaPrincipal().setVisible(true);
+                new Colegio().setVisible(true);
             }
         });
     }
