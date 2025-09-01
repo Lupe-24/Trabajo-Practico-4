@@ -5,6 +5,8 @@
  */
 package Vistas;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Jose Bossa
@@ -52,6 +54,11 @@ public class Vista_Inscripcion extends javax.swing.JInternalFrame {
         boxAlumno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...", "López Martin", "Martínez Brenda" }));
 
         btninscribir.setText("Inscribir");
+        btninscribir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btninscribirActionPerformed(evt);
+            }
+        });
 
         btnSalir.setText("Salir");
 
@@ -108,6 +115,10 @@ public class Vista_Inscripcion extends javax.swing.JInternalFrame {
     private void BoxMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoxMateriaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BoxMateriaActionPerformed
+
+    private void btninscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btninscribirActionPerformed
+
+    }//GEN-LAST:event_btninscribirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
