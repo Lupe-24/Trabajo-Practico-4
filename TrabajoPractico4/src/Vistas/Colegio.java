@@ -149,7 +149,7 @@ public class Colegio extends javax.swing.JFrame {
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         escritorio.removeAll();
         escritorio.repaint();
-        Formulario_Inscripcion formu = new Formulario_Inscripcion();
+        Vista_Inscripcion formu = new Vista_Inscripcion();
         formu.setVisible(true);
         escritorio.add(formu);
         escritorio.moveToFront(formu);        // TODO add your handling code here:

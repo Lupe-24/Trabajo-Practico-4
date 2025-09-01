@@ -9,12 +9,12 @@ package Vistas;
  *
  * @author Jose Bossa
  */
-public class Formulario_Inscripcion extends javax.swing.JInternalFrame {
+public class Vista_Inscripcion extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Formulario_Inscripcion
      */
-    public Formulario_Inscripcion() {
+    public Vista_Inscripcion() {
         initComponents();
     }
 
