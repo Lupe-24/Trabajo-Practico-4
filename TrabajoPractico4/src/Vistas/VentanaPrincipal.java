@@ -32,7 +32,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuAlumno1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         menuMateria = new javax.swing.JMenu();
+        jMenuItemAgregarMateria = new javax.swing.JMenuItem();
         menuRegistro = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
         menuSalir = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -41,11 +43,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 665, Short.MAX_VALUE)
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 301, Short.MAX_VALUE)
+            .addGap(0, 387, Short.MAX_VALUE)
         );
 
         menuAlumno1.setText("Alumno");
@@ -66,9 +68,27 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(menuAlumno1);
 
         menuMateria.setText("Materia");
+
+        jMenuItemAgregarMateria.setText("Agregar materia");
+        jMenuItemAgregarMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemAgregarMateriaActionPerformed(evt);
+            }
+        });
+        menuMateria.add(jMenuItemAgregarMateria);
+
         jMenuBar1.add(menuMateria);
 
         menuRegistro.setText("Registro");
+
+        jMenuItem2.setText("Formulario Inscripcion");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        menuRegistro.add(jMenuItem2);
+
         jMenuBar1.add(menuRegistro);
 
         menuSalir.setText("Salir");
@@ -80,13 +100,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(escritorio)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(escritorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(escritorio, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();
@@ -104,6 +122,24 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void menuAlumno1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAlumno1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_menuAlumno1ActionPerformed
+
+    private void jMenuItemAgregarMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAgregarMateriaActionPerformed
+            escritorio.removeAll();
+           escritorio.repaint();
+           VistaMateria materia = new VistaMateria();
+           materia.setVisible(true);
+           escritorio.add(materia);
+           escritorio.moveToFront(materia);
+    }//GEN-LAST:event_jMenuItemAgregarMateriaActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+escritorio.removeAll();
+        escritorio.repaint();
+        Formulario_Inscripcion formu = new Formulario_Inscripcion();
+        formu.setVisible(true);
+        escritorio.add(formu);
+        escritorio.moveToFront(formu);        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -144,6 +180,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItemAgregarMateria;
     private javax.swing.JMenu menuAlumno1;
     private javax.swing.JMenu menuMateria;
     private javax.swing.JMenu menuRegistro;
