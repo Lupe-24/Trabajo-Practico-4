@@ -36,6 +36,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuRegistro = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         menuSalir = new javax.swing.JMenu();
+        jMenuItemSalir = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -92,6 +93,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(menuRegistro);
 
         menuSalir.setText("Salir");
+
+        jMenuItemSalir.setText("Salir");
+        jMenuItemSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemSalirActionPerformed(evt);
+            }
+        });
+        menuSalir.add(jMenuItemSalir);
+
         jMenuBar1.add(menuSalir);
 
         setJMenuBar(jMenuBar1);
@@ -131,6 +141,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
            escritorio.add(materia);
            escritorio.moveToFront(materia);
     }//GEN-LAST:event_jMenuItemAgregarMateriaActionPerformed
+
+    private void jMenuItemSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSalirActionPerformed
+        System.exit(0);        
+    }//GEN-LAST:event_jMenuItemSalirActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
 escritorio.removeAll();
@@ -182,6 +196,7 @@ escritorio.removeAll();
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItemAgregarMateria;
+    private javax.swing.JMenuItem jMenuItemSalir;
     private javax.swing.JMenu menuAlumno1;
     private javax.swing.JMenu menuMateria;
     private javax.swing.JMenu menuRegistro;
