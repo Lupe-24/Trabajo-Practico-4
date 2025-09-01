@@ -42,5 +42,18 @@ public class Materias {
     public void setAnio(int anio) {
         this.anio = anio;
     }
-
+    
+    /* No se repiten las materias en el HashSet */
+    @Override
+    public boolean equals(Object o){
+        if (this == o) return true;
+        if (!(o instanceof Materias)) return false;
+        Materias materia = (Materias) o;
+        return idMateria == materia.idMateria;
+    }
+    
+    @Override
+    public int hashCode(){
+        return idMateria;
+    }
 }
