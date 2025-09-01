@@ -27,21 +27,96 @@ public class Formulario_Inscripcion extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblTitulo = new javax.swing.JLabel();
+        lblMateria = new javax.swing.JLabel();
+        lblAlumno = new javax.swing.JLabel();
+        BoxMateria = new javax.swing.JComboBox<>();
+        boxAlumno = new javax.swing.JComboBox<>();
+        btninscribir = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
+
+        lblTitulo.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        lblTitulo.setText("Formulario de Inscripcion");
+
+        lblMateria.setText("Elija Una Materia");
+
+        lblAlumno.setText("Elija Un Alumno");
+
+        BoxMateria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...", "Web 2", "Matematicas 1", "Laboratorio 1" }));
+        BoxMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BoxMateriaActionPerformed(evt);
+            }
+        });
+
+        boxAlumno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...", "López Martin", "Martínez Brenda" }));
+
+        btninscribir.setText("Inscribir");
+
+        btnSalir.setText("Salir");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 394, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(84, 84, 84)
+                        .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblAlumno)
+                                .addGap(65, 65, 65)
+                                .addComponent(boxAlumno, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblMateria)
+                                .addGap(58, 58, 58)
+                                .addComponent(BoxMateria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(82, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btninscribir)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnSalir)
+                .addGap(11, 11, 11))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblMateria)
+                    .addComponent(BoxMateria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAlumno)
+                    .addComponent(boxAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btninscribir)
+                    .addComponent(btnSalir))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void BoxMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoxMateriaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BoxMateriaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> BoxMateria;
+    private javax.swing.JComboBox<String> boxAlumno;
+    private javax.swing.JButton btnSalir;
+    private javax.swing.JButton btninscribir;
+    private javax.swing.JLabel lblAlumno;
+    private javax.swing.JLabel lblMateria;
+    private javax.swing.JLabel lblTitulo;
     // End of variables declaration//GEN-END:variables
 }
