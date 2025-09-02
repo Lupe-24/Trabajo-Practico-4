@@ -6,6 +6,7 @@
 package Vistas;
 
 import java.util.HashSet;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -198,6 +199,20 @@ public class Colegio extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
+        
+        Lopez.agregarMateria(web2);
+        Lopez.agregarMateria(matematicas);
+        Lopez.agregarMateria(laboratorio1);
+        
+        Martinez.agregarMateria(web2);
+        Martinez.agregarMateria(matematicas);
+        Martinez.agregarMateria(laboratorio1);
+        Martinez.agregarMateria(laboratorio1);
+        
+        System.out.println(Lopez.getApellido()+" esta inscripto en: "+Lopez.cantidadMaterias()+" materias.");
+        System.out.println(Martinez.getApellido()+" esta inscripta en: "+Martinez.cantidadMaterias()+" materias.");
+        
+        
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
