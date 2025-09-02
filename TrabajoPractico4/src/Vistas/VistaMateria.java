@@ -161,6 +161,9 @@ public class VistaMateria extends javax.swing.JInternalFrame {
             codigo = Integer.parseInt(txtCodigoMateria.getText());
             materias.add(new Materias(codigo, nombre, anio));
             JOptionPane.showMessageDialog(this, "Materia creada exitosamente.");
+            txtNombreMateria.setText("");
+            txtAñoMateria.setText("");
+            txtCodigoMateria.setText("");
         } catch (NumberFormatException e){
             JOptionPane.showMessageDialog(this, "Formato incorrecto");
         }

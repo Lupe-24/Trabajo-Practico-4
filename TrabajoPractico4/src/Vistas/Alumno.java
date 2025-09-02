@@ -59,9 +59,9 @@ public class Alumno {
     public void agregarMateria(Materias m) {
         if (materiasInscripto.contains(m)) {
             materiasInscripto.add(m);
-            System.out.println("El Alumno " + apellido + nombre + " inscripto en " + m + " con éxito");
-        }else{
             System.out.println("El Alumno " + apellido + nombre + " ya está inscripto a esta materia.");
+        }else{
+            System.out.println("El Alumno " + apellido + nombre + " inscripto en " + m.getNombre() + " con éxito");
         }
     }
 
@@ -71,8 +71,8 @@ public class Alumno {
 
     @Override
     public String toString() {
-        return "Alumno " + apellido + nombre + ""
-                + "\n\tNúmero de legajo " + legajo;
+        return "Alumno: " + apellido + " "+ nombre + " ,"
+                + "Número de legajo " + legajo;
     }
 
 }

@@ -5,6 +5,8 @@
  */
 package Vistas;
 
+import static Vistas.Colegio.alumnos;
+import static Vistas.Colegio.materias;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,8 +18,22 @@ public class Vista_Inscripcion extends javax.swing.JInternalFrame {
     /**
      * Creates new form Formulario_Inscripcion
      */
+    public void rellenarBoxMaterias(){
+        BoxMateria.removeAllItems();
+        for(Materias objeto : materias){
+            BoxMateria.addItem(objeto);
+        }}
+    public void rellenarBoxAlumnos(){
+        boxAlumno.removeAllItems();
+        for(Alumno objeto : alumnos){
+            boxAlumno.addItem(objeto);
+        }
+    }
+    
     public Vista_Inscripcion() {
         initComponents();
+        rellenarBoxMaterias();
+        rellenarBoxAlumnos();
     }
 
     /**
@@ -44,14 +60,11 @@ public class Vista_Inscripcion extends javax.swing.JInternalFrame {
 
         lblAlumno.setText("Elija Un Alumno");
 
-        BoxMateria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...", "Web 2", "Matematicas 1", "Laboratorio 1" }));
         BoxMateria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BoxMateriaActionPerformed(evt);
             }
         });
-
-        boxAlumno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...", "López Martin", "Martínez Brenda" }));
 
         btninscribir.setText("Inscribir");
         btninscribir.addActionListener(new java.awt.event.ActionListener() {
@@ -61,11 +74,22 @@ public class Vista_Inscripcion extends javax.swing.JInternalFrame {
         });
 
         btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btninscribir)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnSalir)
+                .addGap(11, 11, 11))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -73,22 +97,14 @@ public class Vista_Inscripcion extends javax.swing.JInternalFrame {
                         .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(31, 31, 31)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblMateria)
+                            .addComponent(lblAlumno))
+                        .addGap(58, 58, 58)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblAlumno)
-                                .addGap(65, 65, 65)
-                                .addComponent(boxAlumno, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblMateria)
-                                .addGap(58, 58, 58)
-                                .addComponent(BoxMateria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(82, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btninscribir)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnSalir)
-                .addGap(11, 11, 11))
+                            .addComponent(boxAlumno, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(BoxMateria, 0, 286, Short.MAX_VALUE))))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -112,18 +128,27 @@ public class Vista_Inscripcion extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btninscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btninscribirActionPerformed
+        Materias materiaSeleccionada = (Materias)BoxMateria.getSelectedItem();
+        Alumno alumnoSeleccionado = (Alumno) boxAlumno.getSelectedItem();
+        
+        if(materiaSeleccionada != null || alumnoSeleccionado != null){
+            alumnoSeleccionado.agregarMateria(materiaSeleccionada);
+        } 
+    }//GEN-LAST:event_btninscribirActionPerformed
+
     private void BoxMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoxMateriaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BoxMateriaActionPerformed
 
-    private void btninscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btninscribirActionPerformed
-
-    }//GEN-LAST:event_btninscribirActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> BoxMateria;
-    private javax.swing.JComboBox<String> boxAlumno;
+    private javax.swing.JComboBox<Materias> BoxMateria;
+    private javax.swing.JComboBox<Alumno> boxAlumno;
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btninscribir;
     private javax.swing.JLabel lblAlumno;

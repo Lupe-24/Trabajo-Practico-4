@@ -43,6 +43,11 @@ public class Materias {
         this.anio = anio;
     }
     
+    @Override
+    public String toString(){
+        return "Id: "+ idMateria + " Nombre: " + nombre + " Año: " + anio; 
+    }
+    
     /* No se repiten las materias en el HashSet */
     @Override
     public boolean equals(Object o){

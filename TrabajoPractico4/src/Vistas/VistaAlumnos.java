@@ -165,6 +165,9 @@ public class VistaAlumnos extends javax.swing.JInternalFrame {
             legajoConvertido = Integer.parseInt(legajo);
             alumnos.add(new Alumno(legajoConvertido, apellido, nombre));
             JOptionPane.showMessageDialog(this, "Alumno creado exitosamente.");
+            txtLegajoAlumno.setText("");
+            txtNombreAlumno.setText("");
+            txtApellidosAlumno.setText("");
         } catch(NumberFormatException e){
             JOptionPane.showMessageDialog(this, "Formato incorrecto o campos vacios");
         } 
