@@ -45,7 +45,7 @@ public class Materias {
     
     @Override
     public String toString(){
-        return "Id: "+ idMateria + " Nombre: " + nombre + " Año: " + anio; 
+        return "ID: "+ idMateria + "| Nombre: " + nombre + "| Año: " + anio; 
     }
     
     /* No se repiten las materias en el HashSet */

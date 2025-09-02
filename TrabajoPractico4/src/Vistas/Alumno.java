@@ -99,8 +99,8 @@ public class Alumno {
     
     @Override
     public String toString() {
-        return "Alumno: " + apellido + " " + nombre + " ,"
-                + "Número de legajo " + legajo;
+        return "Alumno: " + apellido + ", " + nombre + " |"
+                + "Número de legajo: " + legajo;
     }
 
 }
