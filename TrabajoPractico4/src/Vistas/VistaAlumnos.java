@@ -49,7 +49,7 @@ public class VistaAlumnos extends javax.swing.JInternalFrame {
         txtNombreAlumno.setBackground(java.awt.Color.white);
 
         btnGuardarAlumno.setForeground(new java.awt.Color(51, 102, 255));
-        btnGuardarAlumno.setText("Guardar");
+        btnGuardarAlumno.setText("Sobreescribir");
         btnGuardarAlumno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarAlumnoActionPerformed(evt);

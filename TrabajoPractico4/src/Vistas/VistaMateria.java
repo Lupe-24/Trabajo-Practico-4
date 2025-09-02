@@ -56,7 +56,7 @@ public class VistaMateria extends javax.swing.JInternalFrame {
         lblAñoMaterias.setText("AÑO AL QUE PERTENECE:");
 
         jButton1.setForeground(new java.awt.Color(51, 102, 255));
-        jButton1.setText("Guardar");
+        jButton1.setText("Sobreescribir");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
