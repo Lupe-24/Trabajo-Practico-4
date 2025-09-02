@@ -57,6 +57,11 @@ public class VistaMateria extends javax.swing.JInternalFrame {
 
         jButton1.setForeground(new java.awt.Color(51, 102, 255));
         jButton1.setText("Guardar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setForeground(new java.awt.Color(51, 102, 255));
         jButton2.setText("Nuevo");
@@ -156,6 +161,7 @@ public class VistaMateria extends javax.swing.JInternalFrame {
         try{
             if(txtAñoMateria.getText().length() != 4){
                 JOptionPane.showMessageDialog(this, "El año tiene que tener 4 digitos");
+                return;
             }
             anio = Integer.parseInt(txtAñoMateria.getText());
             codigo = Integer.parseInt(txtCodigoMateria.getText());
@@ -168,6 +174,40 @@ public class VistaMateria extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, "Formato incorrecto");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String nombre = txtNombreMateria.getText();
+        int anio = 0;
+        int codigo = 0;
+        try{
+            if(txtAñoMateria.getText().length() != 4){
+                JOptionPane.showMessageDialog(this, "El año tiene que tener 4 digitos");
+                return;
+            }
+            anio = Integer.parseInt(txtAñoMateria.getText());
+            codigo = Integer.parseInt(txtCodigoMateria.getText());
+            for(Materias materia : materias){
+                if(materia.getIdMateria() == codigo){
+                    JOptionPane.showMessageDialog(this, "Ya existe una materia con este ID.");
+                    int respuesta = JOptionPane.showConfirmDialog(null, "¿Desea sobreescribir la materia con el ID: " + codigo, "Confirmación", JOptionPane.YES_NO_OPTION);
+                    switch(respuesta){
+                        case JOptionPane.YES_OPTION:
+                            materia.setAnio(anio);
+                            materia.setNombre(nombre);
+                            break;
+                        case JOptionPane.NO_OPTION:
+                            break;
+                        case JOptionPane.CLOSED_OPTION:
+                            break;
+                    }
+                }
+            }
+            JOptionPane.showMessageDialog(this, "No se ha encontrado materia con el ID se creara una nueva materia.");
+            materias.add(new Materias(codigo, nombre, anio));
+        } catch (NumberFormatException e){
+            JOptionPane.showMessageDialog(this, "Formato incorrecto");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

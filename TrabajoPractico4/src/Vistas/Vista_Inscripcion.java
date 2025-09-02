@@ -18,18 +18,20 @@ public class Vista_Inscripcion extends javax.swing.JInternalFrame {
     /**
      * Creates new form Formulario_Inscripcion
      */
-    public void rellenarBoxMaterias(){
+    public void rellenarBoxMaterias() {
         BoxMateria.removeAllItems();
-        for(Materias objeto : materias){
+        for (Materias objeto : materias) {
             BoxMateria.addItem(objeto);
-        }}
-    public void rellenarBoxAlumnos(){
+        }
+    }
+
+    public void rellenarBoxAlumnos() {
         boxAlumno.removeAllItems();
-        for(Alumno objeto : alumnos){
+        for (Alumno objeto : alumnos) {
             boxAlumno.addItem(objeto);
         }
     }
-    
+
     public Vista_Inscripcion() {
         initComponents();
         rellenarBoxMaterias();
@@ -133,12 +135,20 @@ public class Vista_Inscripcion extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btninscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btninscribirActionPerformed
-        Materias materiaSeleccionada = (Materias)BoxMateria.getSelectedItem();
+        Materias materiaSeleccionada = (Materias) BoxMateria.getSelectedItem();
         Alumno alumnoSeleccionado = (Alumno) boxAlumno.getSelectedItem();
-        
-        if(materiaSeleccionada != null || alumnoSeleccionado != null){
-            alumnoSeleccionado.agregarMateria(materiaSeleccionada);
-        } 
+        try {
+            if (materiaSeleccionada != null || alumnoSeleccionado != null) {
+                if (alumnoSeleccionado.getMateriasInscripto().contains(materiaSeleccionada)) {
+                    JOptionPane.showMessageDialog(this, "Este alumno ya esta inscripto en la materia seleccionada");
+                } else {
+                    alumnoSeleccionado.agregarMateria(materiaSeleccionada);
+                    System.out.println(alumnoSeleccionado.cantidadMaterias());
+                }
+            }
+        } catch (NullPointerException e) {
+            JOptionPane.showMessageDialog(this, "Seleccione un alumno o materia.");
+        }
     }//GEN-LAST:event_btninscribirActionPerformed
 
     private void BoxMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoxMateriaActionPerformed

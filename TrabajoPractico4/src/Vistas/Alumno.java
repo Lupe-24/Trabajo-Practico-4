@@ -58,9 +58,9 @@ public class Alumno {
 
     public void agregarMateria(Materias m) {
         if (materiasInscripto.contains(m)) {
-            materiasInscripto.add(m);
             System.out.println("El Alumno " + apellido + nombre + " ya está inscripto a esta materia.");
-        }else{
+        } else {
+            materiasInscripto.add(m);
             System.out.println("El Alumno " + apellido + nombre + " inscripto en " + m.getNombre() + " con éxito");
         }
     }
@@ -69,9 +69,11 @@ public class Alumno {
         return materiasInscripto.size();
     }
 
+ 
+    
     @Override
     public String toString() {
-        return "Alumno: " + apellido + " "+ nombre + " ,"
+        return "Alumno: " + apellido + " " + nombre + " ,"
                 + "Número de legajo " + legajo;
     }
 

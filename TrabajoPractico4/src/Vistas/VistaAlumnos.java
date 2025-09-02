@@ -168,14 +168,42 @@ public class VistaAlumnos extends javax.swing.JInternalFrame {
             txtLegajoAlumno.setText("");
             txtNombreAlumno.setText("");
             txtApellidosAlumno.setText("");
-        } catch(NumberFormatException e){
+        } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Formato incorrecto o campos vacios");
-        } 
-        
+        }
+
     }//GEN-LAST:event_btnNuevoAlumnoActionPerformed
 
     private void btnGuardarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarAlumnoActionPerformed
-        
+        String legajo = txtLegajoAlumno.getText();
+        String nombre = txtNombreAlumno.getText();
+        String apellido = txtApellidosAlumno.getText();
+        int legajoConvertido = 0;
+        try {
+            legajoConvertido = Integer.parseInt(legajo);
+            for (Alumno alum : alumnos) {
+                if (alum.getLegajo() == legajoConvertido) {
+                    JOptionPane.showMessageDialog(this, "El alumno con legajo: " + legajo + " ya existe.");
+                    int respuesta = JOptionPane.showConfirmDialog(null, "¿Desea sobreescribir los datos del alumno?", "Confirmación", JOptionPane.YES_NO_OPTION);
+                    switch (respuesta) {
+                        case JOptionPane.YES_OPTION:
+                            alum.setApellido(apellido);
+                            alum.setNombre(nombre);
+                            break;
+                        case JOptionPane.NO_OPTION:
+                            break;
+                        case JOptionPane.CLOSED_OPTION:
+                            break;
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(this, "No se ha encontrado el alumno, se generara un nuevo alumno con el legajo: " + legajo);
+                    alumnos.add(new Alumno(legajoConvertido, apellido, nombre));
+                }
+            }
+
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Formato incorrecto.");
+        }
     }//GEN-LAST:event_btnGuardarAlumnoActionPerformed
 
 
