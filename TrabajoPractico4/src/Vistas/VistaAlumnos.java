@@ -157,20 +157,37 @@ public class VistaAlumnos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnSalirAlumnoActionPerformed
 
     private void btnNuevoAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoAlumnoActionPerformed
-        String legajo = txtLegajoAlumno.getText();
-        String nombre = txtNombreAlumno.getText();
-        String apellido = txtApellidosAlumno.getText();
-        int legajoConvertido = 0;
-        try {
-            legajoConvertido = Integer.parseInt(legajo);
-            alumnos.add(new Alumno(legajoConvertido, apellido, nombre));
+    String legajo = txtLegajoAlumno.getText();
+    String nombre = txtNombreAlumno.getText();
+    String apellido = txtApellidosAlumno.getText();
+    int legajoConvertido = 0;
+
+    try {
+        legajoConvertido = Integer.parseInt(legajo);
+        Alumno nuevoAlumno = new Alumno(legajoConvertido, apellido, nombre);
+
+        boolean existe = false;
+        for (Alumno a : alumnos) {
+            if (a.equals(nuevoAlumno)) {
+                existe = true;
+                break;
+            }
+        }
+
+        if (existe) {
+            JOptionPane.showMessageDialog(this, "numero de legajo ya está registrado.");
+        } else {
+            alumnos.add(nuevoAlumno);
             JOptionPane.showMessageDialog(this, "Alumno creado exitosamente.");
             txtLegajoAlumno.setText("");
             txtNombreAlumno.setText("");
             txtApellidosAlumno.setText("");
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Formato incorrecto o campos vacios");
         }
+
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(this, "Formato incorrecto o campos vacíos.");
+    }
+
 
     }//GEN-LAST:event_btnNuevoAlumnoActionPerformed
 
@@ -189,11 +206,11 @@ public class VistaAlumnos extends javax.swing.JInternalFrame {
                         case JOptionPane.YES_OPTION:
                             alum.setApellido(apellido);
                             alum.setNombre(nombre);
-                            break;
+                            return;
                         case JOptionPane.NO_OPTION:
-                            break;
+                            return;
                         case JOptionPane.CLOSED_OPTION:
-                            break;
+                            return;
                     }
                 } else {
                     JOptionPane.showMessageDialog(this, "No se ha encontrado el alumno, se generara un nuevo alumno con el legajo: " + legajo);

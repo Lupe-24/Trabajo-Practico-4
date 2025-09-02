@@ -152,7 +152,7 @@ public class Vista_Inscripcion extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btninscribirActionPerformed
 
     private void BoxMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoxMateriaActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_BoxMateriaActionPerformed
 
 
