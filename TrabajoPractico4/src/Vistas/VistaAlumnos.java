@@ -5,6 +5,9 @@
  */
 package Vistas;
 
+import static Vistas.Colegio.alumnos;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Enzo_2
@@ -39,19 +42,48 @@ public class VistaAlumnos extends javax.swing.JInternalFrame {
         lblNombreAlumno = new javax.swing.JLabel();
         lblTituloAlumnos = new javax.swing.JLabel();
 
+        txtLegajoAlumno.setBackground(java.awt.Color.white);
+
+        txtApellidosAlumno.setBackground(java.awt.Color.white);
+
+        txtNombreAlumno.setBackground(java.awt.Color.white);
+
+        btnGuardarAlumno.setForeground(new java.awt.Color(51, 102, 255));
         btnGuardarAlumno.setText("Guardar");
+        btnGuardarAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarAlumnoActionPerformed(evt);
+            }
+        });
 
+        btnNuevoAlumno.setForeground(new java.awt.Color(51, 102, 255));
         btnNuevoAlumno.setText("Nuevo");
+        btnNuevoAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevoAlumnoActionPerformed(evt);
+            }
+        });
 
+        btnSalirAlumno.setForeground(new java.awt.Color(51, 102, 255));
         btnSalirAlumno.setText("Salir");
+        btnSalirAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirAlumnoActionPerformed(evt);
+            }
+        });
 
+        lblLegajoAlumno.setForeground(new java.awt.Color(51, 102, 255));
         lblLegajoAlumno.setText("LEGAJO:");
 
+        lblApellidoAlumno.setForeground(new java.awt.Color(51, 102, 255));
         lblApellidoAlumno.setText("APELLIDO:");
 
+        lblNombreAlumno.setForeground(new java.awt.Color(51, 102, 255));
         lblNombreAlumno.setText("NOMBRE:");
 
+        lblTituloAlumnos.setBackground(java.awt.Color.white);
         lblTituloAlumnos.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblTituloAlumnos.setForeground(new java.awt.Color(51, 102, 255));
         lblTituloAlumnos.setText("Formulario de Alumnos");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -110,7 +142,7 @@ public class VistaAlumnos extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,6 +151,29 @@ public class VistaAlumnos extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnSalirAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirAlumnoActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnSalirAlumnoActionPerformed
+
+    private void btnNuevoAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoAlumnoActionPerformed
+        String legajo = txtLegajoAlumno.getText();
+        String nombre = txtNombreAlumno.getText();
+        String apellido = txtApellidosAlumno.getText();
+        int legajoConvertido = 0;
+        try {
+            legajoConvertido = Integer.parseInt(legajo);
+            alumnos.add(new Alumno(legajoConvertido, apellido, nombre));
+            JOptionPane.showMessageDialog(this, "Alumno creado exitosamente.");
+        } catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(this, "Formato incorrecto o campos vacios");
+        } 
+        
+    }//GEN-LAST:event_btnNuevoAlumnoActionPerformed
+
+    private void btnGuardarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarAlumnoActionPerformed
+        
+    }//GEN-LAST:event_btnGuardarAlumnoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

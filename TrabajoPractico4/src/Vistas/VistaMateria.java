@@ -5,6 +5,9 @@
  */
 package Vistas;
 
+import static Vistas.Colegio.materias;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Enzo_2
@@ -40,19 +43,36 @@ public class VistaMateria extends javax.swing.JInternalFrame {
         jButton3 = new javax.swing.JButton();
 
         lblTituloMaterias.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblTituloMaterias.setForeground(new java.awt.Color(51, 102, 255));
         lblTituloMaterias.setText("Formulario de materias");
 
+        lblCodigoMaterias.setForeground(new java.awt.Color(51, 102, 255));
         lblCodigoMaterias.setText("CODIGO DE LA MATERIA:");
 
+        lblNombreMaterias.setForeground(new java.awt.Color(51, 102, 255));
         lblNombreMaterias.setText("NOMBRE DE LA MATERIA:");
 
+        lblAñoMaterias.setForeground(new java.awt.Color(51, 102, 255));
         lblAñoMaterias.setText("AÑO AL QUE PERTENECE:");
 
+        jButton1.setForeground(new java.awt.Color(51, 102, 255));
         jButton1.setText("Guardar");
 
+        jButton2.setForeground(new java.awt.Color(51, 102, 255));
         jButton2.setText("Nuevo");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
+        jButton3.setForeground(new java.awt.Color(51, 102, 255));
         jButton3.setText("Salir");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -124,6 +144,27 @@ public class VistaMateria extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+         dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        String nombre = txtNombreMateria.getText();
+        int anio = 0;
+        int codigo = 0;
+        try{
+            if(txtAñoMateria.getText().length() != 4){
+                JOptionPane.showMessageDialog(this, "El año tiene que tener 4 digitos");
+            }
+            anio = Integer.parseInt(txtAñoMateria.getText());
+            codigo = Integer.parseInt(txtCodigoMateria.getText());
+            materias.add(new Materias(codigo, nombre, anio));
+            JOptionPane.showMessageDialog(this, "Materia creada exitosamente.");
+        } catch (NumberFormatException e){
+            JOptionPane.showMessageDialog(this, "Formato incorrecto");
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
