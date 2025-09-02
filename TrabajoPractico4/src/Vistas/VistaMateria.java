@@ -151,26 +151,40 @@ public class VistaMateria extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-         dispose();
+        dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         String nombre = txtNombreMateria.getText();
         int anio = 0;
         int codigo = 0;
-        try{
-            if(txtAñoMateria.getText().length() != 4){
+        try {
+            if (txtAñoMateria.getText().length() != 4) {
                 JOptionPane.showMessageDialog(this, "El año tiene que tener 4 digitos");
                 return;
             }
+
             anio = Integer.parseInt(txtAñoMateria.getText());
             codigo = Integer.parseInt(txtCodigoMateria.getText());
-            materias.add(new Materias(codigo, nombre, anio));
-            JOptionPane.showMessageDialog(this, "Materia creada exitosamente.");
+            Materias mate = new Materias(codigo, nombre, anio);
+            boolean existe = false;
+            for (Materias materia : materias) {
+                if (materia.equals(mate)) {
+                    existe = true;
+                }
+            }
+
+            if (existe) {
+                JOptionPane.showMessageDialog(this, "Esta materia ya existe.");
+            } else {
+                materias.add(mate);
+                JOptionPane.showMessageDialog(this, "Materia creada exitosamente.");
+            }
+
             txtNombreMateria.setText("");
             txtAñoMateria.setText("");
             txtCodigoMateria.setText("");
-        } catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Formato incorrecto");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -179,32 +193,32 @@ public class VistaMateria extends javax.swing.JInternalFrame {
         String nombre = txtNombreMateria.getText();
         int anio = 0;
         int codigo = 0;
-        try{
-            if(txtAñoMateria.getText().length() != 4){
+        try {
+            if (txtAñoMateria.getText().length() != 4) {
                 JOptionPane.showMessageDialog(this, "El año tiene que tener 4 digitos");
                 return;
             }
             anio = Integer.parseInt(txtAñoMateria.getText());
             codigo = Integer.parseInt(txtCodigoMateria.getText());
-            for(Materias materia : materias){
-                if(materia.getIdMateria() == codigo){
+            for (Materias materia : materias) {
+                if (materia.getIdMateria() == codigo) {
                     JOptionPane.showMessageDialog(this, "Ya existe una materia con este ID.");
                     int respuesta = JOptionPane.showConfirmDialog(null, "¿Desea sobreescribir la materia con el ID: " + codigo, "Confirmación", JOptionPane.YES_NO_OPTION);
-                    switch(respuesta){
+                    switch (respuesta) {
                         case JOptionPane.YES_OPTION:
                             materia.setAnio(anio);
                             materia.setNombre(nombre);
-                            break;
+                            return;
                         case JOptionPane.NO_OPTION:
-                            break;
+                            return;
                         case JOptionPane.CLOSED_OPTION:
-                            break;
+                            return;
                     }
                 }
             }
             JOptionPane.showMessageDialog(this, "No se ha encontrado materia con el ID se creara una nueva materia.");
             materias.add(new Materias(codigo, nombre, anio));
-        } catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Formato incorrecto");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
