@@ -159,8 +159,8 @@ public class VistaMateria extends javax.swing.JInternalFrame {
         int anio = 0;
         int codigo = 0;
         try {
-            if (txtAñoMateria.getText().length() != 4) {
-                JOptionPane.showMessageDialog(this, "El año tiene que tener 4 digitos");
+            if (txtAñoMateria.getText().length() != 1) {
+                JOptionPane.showMessageDialog(this, "El año tiene que tener 1 digitos");
                 return;
             }
 
@@ -194,8 +194,8 @@ public class VistaMateria extends javax.swing.JInternalFrame {
         int anio = 0;
         int codigo = 0;
         try {
-            if (txtAñoMateria.getText().length() != 4) {
-                JOptionPane.showMessageDialog(this, "El año tiene que tener 4 digitos");
+            if (txtAñoMateria.getText().length() != 1) {
+                JOptionPane.showMessageDialog(this, "El año tiene que tener 1 digitos");
                 return;
             }
             anio = Integer.parseInt(txtAñoMateria.getText());
